@@ -89,7 +89,7 @@ def upload_pictures1():  # Automatically post a pic in 'pics' folder
             full_caption = caption + "\n" + config.FOLLOW_MESSAGE
             bot.logger.info("Uploading pic with caption: " + caption)
             bot.upload_photo(config.PICS_PATH + pic, caption=full_caption)
-            os.remove(config.PICS_PATH + pic)
+            os.remove(/config.PICS_PATH + pic)
             bot.logger.info("Deleting Uploaded Photo")
             if bot.api.last_response.status_code != 200:
                 bot.logger.error("Something went wrong, read the following ->\n")
