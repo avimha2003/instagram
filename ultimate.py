@@ -89,7 +89,7 @@ def upload_pictures1():  # Automatically post a pic in 'pics' folder
             full_caption = caption + "\n" + config.FOLLOW_MESSAGE
             bot.logger.info("Uploading pic with caption: " + caption)
             bot.upload_photo(config.PICS_PATH + pic, caption=full_caption)
-            os.remove(pic)
+            os.remove(config.PICS_PATH + pic)
             bot.logger.info("Deleting Uploaded Photo")
             if bot.api.last_response.status_code != 200:
                 bot.logger.error("Something went wrong, read the following ->\n")
@@ -144,7 +144,7 @@ schedule.every(16).hours.do(run_threaded, comment_medias)
 schedule.every(1).days.at("08:42").do(run_threaded, unfollow_non_followers)
 schedule.every(12).hours.do(run_threaded, follow_users_from_hashtag_file)
 schedule.every(6).hours.do(run_threaded, comment_hashtag)
-schedule.every(1).hours.do(run_threaded, upload_pictures1)
+schedule.every(1).minutes.do(run_threaded, upload_pictures1)
 schedule.every(4).days.at("07:50").do(run_threaded, put_non_followers_on_blacklist)
 
 while True:
