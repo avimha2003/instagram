@@ -26,7 +26,7 @@ parser.add_argument("-p", type=str, help="password")
 parser.add_argument("-proxy", type=str, help="proxy")
 args = parser.parse_args()
 
-bot.login(username=args.u, password=args.p, proxy=args.proxy)
+bot.login(username="cute_animals_fans_2021", password="Avinash@2003", proxy=args.proxy)
 bot.logger.info("ULTIMATE script. Safe to run 24/7!")
 
 random_user_file = utils.file(config.USERS_FILE)
